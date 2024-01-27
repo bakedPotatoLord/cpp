@@ -20,7 +20,7 @@ public:
     double getServiceCharge() const;
     void setServiceCharge(double serviceChg);
     void postInterest();
-    bool verifyMinimumumBalance(double amount);
+    bool verifyMinimumBalance(double amount);
     void writeCheck(double amount);
     void withdraw(double amount);
     void print() const;
