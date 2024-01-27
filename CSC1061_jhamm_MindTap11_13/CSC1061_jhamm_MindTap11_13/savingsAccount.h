@@ -1,4 +1,4 @@
-//Class savingsAccount 
+// Class savingsAccount
 
 #ifndef H_savingsAccount
 #define H_savingsAccount
@@ -16,7 +16,7 @@ public:
     void postInterest();
     void print() const;
     savingsAccount(int acctNumber, double bal,
-        double intRate = DEFAULT_INTEREST_RATE_SAVINGS);
+                   double intRate = DEFAULT_INTEREST_RATE_SAVINGS);
 
 protected:
     double interestRate;

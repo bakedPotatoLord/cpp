@@ -1,5 +1,5 @@
 
-//Class checkingAccount 
+// Class checkingAccount
 
 #ifndef H_checkingAccount
 #define H_checkingAccount
@@ -26,9 +26,9 @@ public:
     void print() const;
 
     checkingAccount(int acctNumber, double bal,
-        double minBal = DEFAULT_MIN_BALANCE,
-        double intRate = DEFAULT_INTEREST_RATE_CHECKING,
-        double servC = DEFAULT_SERVICE_CHARGE);
+                    double minBal = DEFAULT_MIN_BALANCE,
+                    double intRate = DEFAULT_INTEREST_RATE_CHECKING,
+                    double servC = DEFAULT_SERVICE_CHARGE);
 
 protected:
     double interestRate;
@@ -37,4 +37,3 @@ protected:
 };
 
 #endif
-

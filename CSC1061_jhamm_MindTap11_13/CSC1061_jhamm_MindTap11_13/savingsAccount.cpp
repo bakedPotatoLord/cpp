@@ -1,5 +1,5 @@
 
-//Implementation File savingsAccountImp.cpp
+// Implementation File savingsAccountImp.cpp
 
 #include <iostream>
 #include <iomanip>
@@ -19,8 +19,10 @@ void savingsAccount::setInterestRate(double rate)
 
 void savingsAccount::withdraw(double amount)
 {
-	if (balance - amount >= 0) balance -= amount;
-	else throw "insufficient funds";
+	if (balance - amount >= 0)
+		balance -= amount;
+	else
+		throw "insufficient funds";
 }
 
 void savingsAccount::postInterest()
@@ -34,13 +36,7 @@ void savingsAccount::print() const
 	bankAccount::print();
 }
 
-savingsAccount::savingsAccount(int acctNumber, double bal, double intRate):
-	bankAccount(acctNumber,bal)
+savingsAccount::savingsAccount(int acctNumber, double bal, double intRate) : bankAccount(acctNumber, bal)
 {
 	interestRate = intRate;
 }
-
-
-
-
-

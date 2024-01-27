@@ -1,5 +1,5 @@
 
-//Implementation file bankAccountImp.cpp
+// Implementation file bankAccountImp.cpp
 
 #include <iostream>
 #include <iomanip>
@@ -7,22 +7,25 @@
 
 using namespace std;
 
-//Constructor
+// Constructor
 bankAccount::bankAccount(int acctNumber, double bal)
 {
     accountNumber = acctNumber;
     balance = bal;
 }
 
-void bankAccount::setAccountNumber(int num) {
+void bankAccount::setAccountNumber(int num)
+{
     accountNumber = num;
 }
 
-int bankAccount::getAccountNumber() const {
+int bankAccount::getAccountNumber() const
+{
     return accountNumber;
 }
 
-double bankAccount::getBalance() const {
+double bankAccount::getBalance() const
+{
     return balance;
 }
 
@@ -42,6 +45,3 @@ void bankAccount::print() const
     printf("%.*f", 2, balance);
     cout << '\n';
 }
-
-
-

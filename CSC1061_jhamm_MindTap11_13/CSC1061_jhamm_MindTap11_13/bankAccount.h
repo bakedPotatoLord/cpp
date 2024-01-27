@@ -1,7 +1,7 @@
 
-//Class bankAccount
+// Class bankAccount
 
-#ifndef H_bankAccount 
+#ifndef H_bankAccount
 #define H_bankAccount
 
 class bankAccount

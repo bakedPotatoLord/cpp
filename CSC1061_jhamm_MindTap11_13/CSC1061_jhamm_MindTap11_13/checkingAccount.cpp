@@ -3,8 +3,7 @@
 
 using namespace std;
 
-checkingAccount::checkingAccount(int acctNumber, double bal, double minBal, double intRate, double servC) :
-bankAccount(acctNumber,bal)
+checkingAccount::checkingAccount(int acctNumber, double bal, double minBal, double intRate, double servC) : bankAccount(acctNumber, bal)
 {
 	minimumBalance = minBal;
 	interestRate = intRate;
@@ -36,9 +35,9 @@ double checkingAccount::getServiceCharge() const
 	return serviceCharge;
 }
 
-void checkingAccount::setServiceCharge( double serviceChg)
+void checkingAccount::setServiceCharge(double serviceChg)
 {
-	serviceCharge = (serviceChg> 0) ? serviceChg : 0;
+	serviceCharge = (serviceChg > 0) ? serviceChg : 0;
 }
 void checkingAccount::postInterest()
 {
@@ -58,7 +57,8 @@ void checkingAccount::writeCheck(double amount)
 void checkingAccount::withdraw(double amount)
 {
 	balance -= amount;
-	if (balance < minimumBalance) balance -= serviceCharge;
+	if (balance < minimumBalance)
+		balance -= serviceCharge;
 }
 
 void checkingAccount::print() const
@@ -66,8 +66,3 @@ void checkingAccount::print() const
 	cout << "Interest Checking ACCT#:\t";
 	bankAccount::print();
 }
-
-
-
-
-
