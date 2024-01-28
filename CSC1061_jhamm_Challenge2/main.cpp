@@ -9,10 +9,11 @@
 
 using namespace std;
 
+stack<Inventory> invStack;
+
 int main()
 {
 
-	stack<Inventory> invStack;
 
 	cout << "************ Inventory Manager using a Stack ************\n";
 
@@ -20,6 +21,7 @@ int main()
 	char option;
 
 	while (true) {
+		cout << "Enter your Choice: ";
 		//option search loop
 		cin >> option;
 
@@ -36,14 +38,25 @@ int main()
 		else {
 			cout << "Invalid Input! Try Again (A|R|V)\n";
 		}
-
 	}
-
 }
 
 void addInv()
 {
+	unsigned int serNum = 0;
+	string manDate = "";
+	unsigned int lotNum = 0;
 
+	cout << "Enter serial number: ";
+	cin  >> serNum;
+	cout << "Enter Manufacture Date: ";
+	cin >> manDate;
+	cout << "Enter lot Number: ";
+	cin >> lotNum;
+
+
+	invStack.push(*(new Inventory (serNum, manDate, lotNum)));
+	cout << "new Inventory Succesfully added!";
 }
 
 void removeInv()
@@ -52,5 +65,16 @@ void removeInv()
 
 void viewInv()
 {
+	size_t len = invStack.size();
+
+
+
+	for (int i = 0; i < len;i++) {
+		Inventory* val = &invStack.top();
+
+
+		cout << "Serial Num :" << val->getSerialNum() << '\n';
+		
+	}
 }
 

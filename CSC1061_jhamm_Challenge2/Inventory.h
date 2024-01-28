@@ -9,7 +9,7 @@ private:
 	string manufactureDate;
 	unsigned int lotnum;
 public:
-
+	Inventory();
 	Inventory(int, string, int);
 
 	int getSerialNum() const;

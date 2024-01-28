@@ -1,5 +1,11 @@
 #include "Inventory.h"
 
+Inventory::Inventory() {
+	serialNum = 0;
+	manufactureDate = "0/0";
+	lotnum = 0;
+}
+
 Inventory::Inventory(int serialNum = 0, string manDate = "0/0", int lotNum = 0)
 {
 	this->serialNum = serialNum;
