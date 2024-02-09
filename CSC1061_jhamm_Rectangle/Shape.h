@@ -6,7 +6,7 @@
 class Shape
 {
 private:
-    std::string color
+    std::string color;
 public:
     Shape();
     Shape(std::string);

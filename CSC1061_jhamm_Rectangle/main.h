@@ -4,3 +4,4 @@
 
 int main();
 double greatestArea(Rectangle[], int);
+
