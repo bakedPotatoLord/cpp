@@ -8,6 +8,8 @@ struct point{
     int j;
 };
 
+
+
 int main();
 int numIslands(std::vector<std::vector<bool>> );
 std::vector<point*> getTouching(const point p, const int height, const int length);

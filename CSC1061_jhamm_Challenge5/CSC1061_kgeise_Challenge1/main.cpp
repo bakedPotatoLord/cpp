@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <stack>
+#include <cassert>
 #include "main.h"
 
 using namespace std;
@@ -8,27 +9,50 @@ using namespace std;
 int main()
 {
 
-    vector<vector<bool>> vec{
-        {0,0,1,1,0,1,0},
-        {1,0,1,0,0,1,0},
-        {1,0,0,0,0,0,0},
-        {0,0,1,0,1,0,1}
+    vector<vector<vector<bool>>> tests{
+        {
+            {0,0,1,1,0,1,0},
+            {1,0,1,0,0,1,0},
+            {1,0,0,0,0,0,0},
+            {0,0,1,0,1,0,1}    
+        },
+        {
+            {1,1},
+            {1,1}
+        },
+        {
+            {1,0},
+            {0,1}
+        },
+        {
+            {1,0,0,0,1},
+            {0,0,0,0,0},
+            {0,0,1,0,0},
+            {0,0,0,0,0},
+            {1,0,0,0,1}
+        },
+        {
+            {0}
+        },
+        {
+            {1}
+        },
+        {
+            {0,1,1,1,0,1,0,1,0,0,1,1}
+        }
     };
 
-    printMatrix(vec);
+    vector<int> answers = { 6,1,2,5,0,1,4};
 
-    // point p =*new point {1,1};
-    // auto pts = getTouching(p,10,10);
+    assert(tests.size() == answers.size()); // make sure tests are set up correctly
 
-    // for(auto pt : pts){
-    //     cout << pt->i << ' ' << pt->j << endl;
-    // }
-
-
-    //calculate number of islands
-    int nislands = numIslands(vec);
-
-    cout <<"num islands: " << nislands;
+   for(int i  = 0 ; i<tests.size();i++){
+    printMatrix(tests[i]);
+    auto answer = numIslands(tests[i]);
+    cout << "algorithm answer: " << answer << endl;
+    cout << "answer "  << ((answers[i] == answer)? "correct👍": "incorrect👎") << endl <<endl;
+    assert(answers[i] == answer);
+   }
 
     return 0;
 };
