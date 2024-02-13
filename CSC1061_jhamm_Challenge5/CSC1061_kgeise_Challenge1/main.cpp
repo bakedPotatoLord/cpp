@@ -9,51 +9,11 @@ using namespace std;
 
 int main()
 {
-    // Define test cases
-    vector<vector<vector<bool>>> tests{
-        {{0, 0, 1, 1, 0, 1, 0},
-         {1, 0, 1, 0, 0, 1, 0},
-         {1, 0, 0, 0, 0, 0, 0},
-         {0, 0, 1, 0, 1, 0, 1}},
-        {{1, 1},
-         {1, 1}},
-        {{1, 0},
-         {0, 1}},
-        {{1, 0, 0, 0, 1},
-         {0, 0, 0, 0, 0},
-         {0, 0, 1, 0, 0},
-         {0, 0, 0, 0, 0},
-         {1, 0, 0, 0, 1}},
-        {{0}},
-        {{1}},
-        {{0, 1, 1, 1, 0, 1, 0, 1, 0, 0, 1, 1}}};
-
-    // Define expected answers
-    vector<int> answers = {6, 1, 2, 5, 0, 1, 4};
-
-    // Ensure the size of tests and answers match
-    assert(tests.size() == answers.size());
-
-    // Iterate over test cases
-    for (int i = 0; i < tests.size(); i++)
-    {
-        // Print the matrix for the current test case
-        printMatrix(tests[i]);
-        // Get the number of islands using the algorithm
-        auto answer = numIslands(tests[i]);
-        // Print the algorithm's answer
-        cout << "algorithm answer: " << answer << endl;
-        // Check if the answer matches the expected answer
-        cout << "answer " << ((answers[i] == answer) ? "correct" : "incorrect") << endl
-             << endl;
-        // Assert the correctness of the answer
-        assert(answers[i] == answer);
-    }
-
+    testAlgorithm();
     return 0;
 };
 
-// Function to count the number of islands
+// Function to count the number of islands time complexity is O(n*m) where n and m are height and length;
 int numIslands(vector<vector<bool>> mx)
 {
     int islands = 0;
@@ -96,20 +56,64 @@ int numIslands(vector<vector<bool>> mx)
     return islands;
 };
 
+//function to test my island counting algorithm
+void testAlgorithm(){
+    // Define test cases
+    vector<vector<vector<bool>>> tests{
+        {{0, 0, 1, 1, 0, 1, 0},
+         {1, 0, 1, 0, 0, 1, 0},
+         {1, 0, 0, 0, 0, 0, 0},
+         {0, 0, 1, 0, 1, 0, 1}},
+        {{1, 1},
+         {1, 1}},
+        {{1, 0},
+         {0, 1}},
+        {{1, 0, 0, 0, 1},
+         {0, 0, 0, 0, 0},
+         {0, 0, 1, 0, 0},
+         {0, 0, 0, 0, 0},
+         {1, 0, 0, 0, 1}},
+        {{0}},
+        {{1}},
+        {{0, 1, 1, 1, 0, 1, 0, 1, 0, 0, 1, 1}}};
+
+    // Define expected answers
+    vector<int> answers = {6, 1, 2, 5, 0, 1, 4};
+
+    // Ensure the size of tests and answers match
+    assert(tests.size() == answers.size());
+
+    // Iterate over test cases
+    for (int i = 0; i < tests.size(); i++)
+    {
+        // Print the matrix for the current test case
+        printMatrix(tests[i]);
+        // Get the number of islands using the algorithm
+        auto answer = numIslands(tests[i]);
+        // Print the algorithm's answer
+        cout << "algorithm answer: " << answer << endl;
+        // Check if the answer matches the expected answer
+        cout << "answer " << ((answers[i] == answer) ? "correct" : "incorrect") << endl
+             << endl;
+        // Assert the correctness of the answer
+        assert(answers[i] == answer);
+    }
+}
+
 // Function to get adjacent points
 vector<point *> getTouching(const point p, int height, int width)
 {
+    //create point vector
     vector<point *> points;
-    if (p.i > 0)
+    // Add adjacent points to the vector
+    if (p.i > 0) 
         points.push_back(new point{p.i - 1, p.j});
     if (p.i < height - 1)
         points.push_back(new point{p.i + 1, p.j});
-
     if (p.j > 0)
         points.push_back(new point{p.i, p.j - 1});
     if (p.j < width - 1)
         points.push_back(new point{p.i, p.j + 1});
-
     return points;
 }
 
@@ -117,13 +121,13 @@ vector<point *> getTouching(const point p, int height, int width)
 template <typename T>
 void printMatrix(vector<vector<T>> mx)
 {
-    for (const vector<bool> &vec : mx)
-    {
+    for (const vector<bool> &vec : mx) 
+    { //for each row
         for (const bool &b : vec)
-        {
-            cout << b << ' ';
+        { //for each value
+            cout << b << ' '; //print the value
         }
-        cout << endl;
+        cout << endl; 
     }
     cout << endl;
 }
