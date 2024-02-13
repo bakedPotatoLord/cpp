@@ -20,13 +20,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Array.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="LinkedList.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="List.h">
+    <ClInclude Include="main.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
