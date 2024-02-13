@@ -21,10 +21,9 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{b6dfc596-11b8-4685-944c-b7244256bb77}</ProjectGuid>
-    <RootNamespace>CSC1061_SP24_MindTap11_13_start</RootNamespace>
+    <ProjectGuid>{57c23e0e-6876-4a4c-9ed9-beea5a6fc036}</ProjectGuid>
+    <RootNamespace>CSC1061jhammMindTap1113</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
-    <ProjectName>CSC1061_jhamm_MindTap11_13_s</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -130,7 +129,7 @@
   <ItemGroup>
     <ClCompile Include="bankAccount.cpp" />
     <ClCompile Include="checkingAccount.cpp" />
-    <ClCompile Include="CSC1061_SP24_MindTap11_13_soln.cpp" />
+    <ClCompile Include="main.cpp" />
     <ClCompile Include="savingsAccount.cpp" />
   </ItemGroup>
   <ItemGroup>

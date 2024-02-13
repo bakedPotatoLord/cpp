@@ -15,16 +15,16 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="CSC1061_SP24_MindTap11_13_soln.cpp">
+    <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="bankAccount.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="savingsAccount.cpp">
+    <ClCompile Include="checkingAccount.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="checkingAccount.cpp">
+    <ClCompile Include="savingsAccount.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

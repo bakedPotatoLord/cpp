@@ -35,7 +35,7 @@ int main()
     samirAccount.print();
     ritaAccount.print();
     cout << "***********************************" << endl
-         << endl;
+        << endl;
 
     jackAccount.writeCheck(250);
     lisaAccount.writeCheck(350);
@@ -48,7 +48,7 @@ int main()
     samirAccount.print();
     ritaAccount.print();
     cout << "***********************************" << endl
-         << endl;
+        << endl;
 
     return 0;
 }
