@@ -3,90 +3,74 @@
 
 #include <iostream>
 #include <stack>
-
-#include "Inventory.h"
+#include <vector>
+#include "Item.h"
 #include "main.h"
+#include "InventoryADT.h"
+#include "InventoryStack.h"
+#include "InventoryQueue.h"
 
 using namespace std;
 
-stack<Inventory*> invStack;
-
 int main()
 {
-	cout << "************ Inventory Manager using a Stack ************\n";
+	InventoryADT *inventory;
 
-	cout << "A to add to stack\nR to remove from stack\nV to view inventory\n";
+	cout << "Would you like to use a Stack or Queue? (S|Q)" << endl;
 	char option;
 
-	invStack.push(new Inventory(1, "1/3", 4));
-	invStack.push(new Inventory(3, "4/23", 3));
+	while (true)
+	{
+		cin >> option;
+		option = toupper(option);
 
+		if (option == 'S')
+		{
+			inventory = new InventoryStack();
+			break;
+		}
+		else if (option == 'Q')
+		{
+			inventory = new InventoryQueue();
+			break;
+		}
+		else
+		{
+			cout << "Invalid option. Try again." << endl;
+		}
+	}
 
-	while (true) {
+	cout << "************ Inventory Manager ************\n";
+
+	cout << "A to add \nR to remove\nV to view\nX to exit\n";
+
+	while (true)
+	{
 		cout << "Enter your Choice: ";
-		//option search loop
+		// option search loop
 		cin >> option;
 
 		option = toupper(option);
 
-		if (option == 'A') {
-			addInv();
-		}else if (option == 'R') {
-			removeInv();
+		if (option == 'A')
+		{
+			inventory->addInv();
 		}
-		else if (option == 'V') {
-			viewInv();
+		else if (option == 'R')
+		{
+			inventory->removeInv();
 		}
-		else {
+		else if (option == 'V')
+		{
+			inventory->viewInv();
+		}
+		else if (option == 'X')
+		{
+			return 0;
+		}
+		else
+		{
 			cout << "Invalid Input! Try Again (A|R|V)\n";
 		}
 	}
 }
-
-void addInv()
-{
-	unsigned int serNum = 0;
-	string manDate = "";
-	unsigned int lotNum = 0;
-
-	cout << "Enter serial number: ";
-	cin  >> serNum;
-	cout << "Enter Manufacture Date: ";
-	cin >> manDate;
-	cout << "Enter lot Number: ";
-	cin >> lotNum;
-
-	Inventory* inv = new Inventory(serNum, manDate, lotNum);
-
-	invStack.push(inv);
-
-	cout << "new Inventory Succesfully added!";
-}
-
-void removeInv()
-{
-}
-
-void viewInv()
-{
-	size_t len = invStack.size();
-	
-	Inventory **ptrs = (Inventory**)malloc(sizeof(int*) * 10);
-
-	
-	for (int i = 0;i < len;i++) {
-		Inventory* val = invStack.top();
-		invStack.pop();
-
-		cout << "Serial Num : " << val->getSerialNum()
-			<<" manufacture date: " <<val->getManufactureDate() 
-			<<" lot num: " << val->getLotNum()
-			<< '\n';
-		ptrs[i] = val;
-		//invStack.push(val);
-		
-	}
-
-	
-}
-

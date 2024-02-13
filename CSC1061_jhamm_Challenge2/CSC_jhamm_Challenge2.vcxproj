@@ -127,11 +127,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="InventoryADT.h" />
+    <ClCompile Include="InventoryQueue.cpp" />
+    <ClCompile Include="InventoryStack.cpp" />
+    <ClCompile Include="InventoryStack.h" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="Inventory.cpp" />
-    <ClCompile Include="Inventory.h" />
+    <ClCompile Include="Item.cpp" />
+    <ClCompile Include="Item.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="InventoryQueue.h" />
     <ClInclude Include="main.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

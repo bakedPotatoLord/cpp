@@ -18,15 +18,30 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Inventory.h">
+    <ClCompile Include="Item.h">
       <Filter>Header Files</Filter>
     </ClCompile>
-    <ClCompile Include="Inventory.cpp">
+    <ClCompile Include="Item.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="InventoryADT.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="InventoryStack.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="InventoryStack.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="InventoryQueue.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="InventoryQueue.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
