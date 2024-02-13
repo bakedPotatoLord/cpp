@@ -13,7 +13,7 @@ Inventory::Inventory(int serialNum = 0, string manDate = "0/0", int lotNum = 0)
 	this->lotnum = lotNum;
 }
 
-int Inventory::getSerialNum() const
+int Inventory::getSerialNum()
 {
 	return serialNum;
 }

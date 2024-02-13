@@ -9,16 +9,18 @@
 
 using namespace std;
 
-stack<Inventory> invStack;
+stack<Inventory*> invStack;
 
 int main()
 {
-
-
 	cout << "************ Inventory Manager using a Stack ************\n";
 
 	cout << "A to add to stack\nR to remove from stack\nV to view inventory\n";
 	char option;
+
+	invStack.push(new Inventory(1, "1/3", 4));
+	invStack.push(new Inventory(3, "4/23", 3));
+
 
 	while (true) {
 		cout << "Enter your Choice: ";
@@ -54,8 +56,10 @@ void addInv()
 	cout << "Enter lot Number: ";
 	cin >> lotNum;
 
+	Inventory* inv = new Inventory(serNum, manDate, lotNum);
 
-	invStack.push(*(new Inventory (serNum, manDate, lotNum)));
+	invStack.push(inv);
+
 	cout << "new Inventory Succesfully added!";
 }
 
@@ -66,15 +70,23 @@ void removeInv()
 void viewInv()
 {
 	size_t len = invStack.size();
+	
+	Inventory **ptrs = (Inventory**)malloc(sizeof(int*) * 10);
 
+	
+	for (int i = 0;i < len;i++) {
+		Inventory* val = invStack.top();
+		invStack.pop();
 
-
-	for (int i = 0; i < len;i++) {
-		Inventory* val = &invStack.top();
-
-
-		cout << "Serial Num :" << val->getSerialNum() << '\n';
+		cout << "Serial Num : " << val->getSerialNum()
+			<<" manufacture date: " <<val->getManufactureDate() 
+			<<" lot num: " << val->getLotNum()
+			<< '\n';
+		ptrs[i] = val;
+		//invStack.push(val);
 		
 	}
+
+	
 }
 

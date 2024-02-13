@@ -12,7 +12,7 @@ public:
 	Inventory();
 	Inventory(int, string, int);
 
-	int getSerialNum() const;
+	int getSerialNum() ;
 	void setSerialNum(unsigned int);
 	string getManufactureDate() const;
 	void setmanufactureDate(string);
