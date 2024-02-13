@@ -365,3 +365,6 @@ FodyWeavers.xsd
 
 #g++ built files
 **/*.out
+
+# submission zips
+**/*.zip
