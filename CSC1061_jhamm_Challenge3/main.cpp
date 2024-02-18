@@ -10,24 +10,40 @@ using namespace std;
 
 int main()
 {
-    std::cout << "Hello World!\n";
 
     int* arr1 = makeArr();
     int* arr2 = makeArr();
-    cout << "initial arr" << endl;
-    printArr(arr1,100);
-
-    cout << "shuffled arr" << endl;
-    shuffle(arr1,100);
-    printArr(arr1, 100);
-
-    //int c = selectionSortComparisons(arr1, 100);
-    int c = quickSortComparisons(arr1, 0, 99);
 
 
-    cout << "sorted arr?" << endl;
-    printArr(arr1, 100);
-    cout << c << endl;
+    int compsSelection[100];
+    int compsQuick[100];
+
+    for (int i = 0; i < 100; i++) {
+        shuffle(arr1,100);
+        copyArr(arr1, arr2, 100);
+
+        compsSelection[i] = selectionSortComparisons(arr1, 100);
+        compsQuick[i] = quickSortComparisons(arr2, 0, 99);
+    }
+
+    int sumSelection = 0;
+    int sumQuick = 0;
+    
+    for (auto c : compsSelection) {
+        sumSelection += c;
+    }
+    for (auto c : compsQuick) {
+        sumQuick += c;
+    }
+
+    //cout << sumSelection << endl;
+    //cout << sumQuick << endl;
+
+    double averageSelection = (double)sumSelection / 100.0;
+    double averageQuick = (double)sumQuick / 100.0;
+        
+    cout << "selection sort average comparisons: " << averageSelection << endl;
+    cout << "quick sort average comparisons: " << averageQuick << endl;
 
 }
 

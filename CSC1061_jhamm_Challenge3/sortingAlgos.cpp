@@ -13,9 +13,9 @@ int selectionSortComparisons(int* arr, int len)
 		int min = i;
 		for (int j = i; j < len; j++) {
 			//starting at i, and continuing to end of list
+			comparisons++;
 			if (arr[min] > arr[j]) {
 				min = j;
-				comparisons++;
 			}
 		}
 		//swap the values
