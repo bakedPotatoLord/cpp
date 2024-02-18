@@ -1,10 +1,14 @@
+
+// AI tooling was used for autocomplete and comment generation on this project.
+// @bakedpotatolord 2/17/2024
+
 // Including necessary libraries and header files
 #include <iostream>
 #include <stack>
 #include <vector>
-#include "Item.h"						// Header file for item class
-#include "main.h"						// Header file for main class
-#include "InventoryADT.h"		// Header file for Inventory Abstract Data Type
+#include "Item.h"			// Header file for item class
+#include "main.h"			// Header file for main class
+#include "InventoryADT.h"	// Header file for Inventory Abstract Data Type
 #include "InventoryStack.h" // Header file for Inventory Stack implementation
 #include "InventoryQueue.h" // Header file for Inventory Queue implementation
 
