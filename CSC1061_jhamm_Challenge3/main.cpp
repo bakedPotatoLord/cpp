@@ -21,7 +21,9 @@ int main()
     shuffle(arr1,100);
     printArr(arr1, 100);
 
-    int c = selectionSortComparisons(arr1, 100);
+    //int c = selectionSortComparisons(arr1, 100);
+    int c = quickSortComparisons(arr1, 0, 99);
+
 
     cout << "sorted arr?" << endl;
     printArr(arr1, 100);

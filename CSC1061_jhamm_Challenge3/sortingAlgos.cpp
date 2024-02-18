@@ -23,12 +23,46 @@ int selectionSortComparisons(int* arr, int len)
 		arr[i] = arr[min];
 		arr[min] = saved;
 	}
-
-
 	return comparisons;
 }
 
-int quickSortComparisons(int* arr, int len)
+int quickSortComparisons(int* arr, const int low,const int high)
 {
-	return 0;
+	int comps = 1;
+
+	if (low < high) {
+		int partIdx = partition(arr, low, high, comps);
+		comps += quickSortComparisons(arr, low, partIdx - 1);
+		comps += quickSortComparisons(arr, partIdx + 1, high);
+	}
+
+	return comps;
 }
+
+int partition(int arr[], int low, int high, int& comps)
+{
+	int i = (low-1);
+
+	const int pivot = arr[high];
+
+	for (int j = low; j <= high; j++) {
+		comps++;
+		if (arr[j] < pivot) {
+			
+			i++;
+
+			int saved = arr[j];
+			arr[j] = arr[i];
+			arr[i] = saved;
+			
+			
+		}
+	}
+
+	arr[high] = arr[i+1];
+	arr[i+1] = pivot;
+
+	return i+1;
+}
+
+
