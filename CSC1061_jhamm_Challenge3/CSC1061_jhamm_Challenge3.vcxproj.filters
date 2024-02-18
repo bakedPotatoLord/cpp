@@ -21,12 +21,18 @@
     <ClCompile Include="sortingAlgos.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="searchAlgos.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="sortingAlgos.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="searchAlgos.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
