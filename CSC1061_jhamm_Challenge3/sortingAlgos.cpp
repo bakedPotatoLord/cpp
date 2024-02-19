@@ -2,8 +2,8 @@
 #include "main.h"
 
 // Implementation of the selection sort algorithm
-// Sorts an array in ascending order using selection sort and counts the number of comparisons made
-// Parameters:
+// Sorts an array in ascending order using selection sort and counts the number
+// of comparisons made Parameters:
 //   arr: Pointer to the array to be sorted
 //   len: Length of the array
 // Returns:
@@ -15,7 +15,8 @@ int selectionSortComparisons(int *arr, int len) {
     comparisons++;
     // Initializing min index to current index
     int min = i;
-    // Finding the index of the minimum element in the unsorted portion of the array
+    // Finding the index of the minimum element in the unsorted portion of the
+    // array
     for (int j = i; j < len; j++) {
       comparisons += 2;
       // Comparing elements to find the minimum
@@ -23,7 +24,8 @@ int selectionSortComparisons(int *arr, int len) {
         min = j;
       }
     }
-    // Swapping the minimum element with the first element of the unsorted portion
+    // Swapping the minimum element with the first element of the unsorted
+    // portion
     int saved = arr[i];
     arr[i] = arr[min];
     arr[min] = saved;
@@ -32,8 +34,8 @@ int selectionSortComparisons(int *arr, int len) {
 }
 
 // Implementation of the quick sort algorithm
-// Sorts an array in ascending order using quick sort and counts the number of comparisons made
-// Parameters:
+// Sorts an array in ascending order using quick sort and counts the number of
+// comparisons made Parameters:
 //   arr: Pointer to the array to be sorted
 //   low: Starting index of the subarray to be sorted
 //   high: Ending index of the subarray to be sorted
@@ -52,12 +54,13 @@ int quickSortComparisons(int *arr, const int low, const int high) {
 }
 
 // Helper function for quick sort: partitioning
-// Partitions the array into two halves such that elements less than pivot are on the left and elements greater are on the right
-// Parameters:
+// Partitions the array into two halves such that elements less than pivot are
+// on the left and elements greater are on the right Parameters:
 //   arr: Pointer to the array to be partitioned
 //   low: Starting index of the subarray to be partitioned
 //   high: Ending index of the subarray to be partitioned
-//   comps: Reference to an integer variable to store the number of comparisons made during the partitioning process
+//   comps: Reference to an integer variable to store the number of comparisons
+//   made during the partitioning process
 // Returns:
 //   The index of the pivot element after partitioning
 int partition(int arr[], int low, int high, int &comps) {

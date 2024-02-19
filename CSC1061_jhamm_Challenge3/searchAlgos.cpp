@@ -6,7 +6,8 @@
 //   arr: Pointer to the array to be searched
 //   len: Length of the array
 //   searchEl: Element to search for
-//   comparisons: Reference to an integer variable to store the number of comparisons made during the search
+//   comparisons: Reference to an integer variable to store the number of
+//   comparisons made during the search
 // Returns:
 //   True if the element is found, false otherwise
 bool sequentialSearch(int *arr, int len, int searchEl, int &comparisons) {
@@ -27,7 +28,8 @@ bool sequentialSearch(int *arr, int len, int searchEl, int &comparisons) {
 //   arr: Pointer to the sorted array to be searched
 //   len: Length of the array
 //   searchEl: Element to search for
-//   comparisons: Reference to an integer variable to store the number of comparisons made during the search
+//   comparisons: Reference to an integer variable to store the number of
+//   comparisons made during the search
 // Returns:
 //   True if the element is found, false otherwise
 bool binarySeach(int *arr, int len, int searchEl, int &comparisons) {

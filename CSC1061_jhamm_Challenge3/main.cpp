@@ -1,9 +1,11 @@
 // AI tooling was used for autocomplete and comment generation
 // @bakedpotatolord 2/24
 
-// This program demonstrates the efficiency of sorting and searching algorithms by measuring the average number of comparisons required.
-// The sorting algorithms tested are selection sort and quick sort, while the searching algorithms tested are sequential search and binary search.
-// Arrays are shuffled before each test to ensure randomness in data distribution.
+// This program demonstrates the efficiency of sorting and searching algorithms
+// by measuring the average number of comparisons required. The sorting
+// algorithms tested are selection sort and quick sort, while the searching
+// algorithms tested are sequential search and binary search. Arrays are
+// shuffled before each test to ensure randomness in data distribution.
 
 #include "main.h"
 #include "searchAlgos.h"
@@ -35,7 +37,7 @@ int main() {
   // Calculating average comparisons for each sorting algorithm
   double averageSelection = (double)sumSelection / 100.0;
   double averageQuick = (double)sumQuick / 100.0;
-  
+
   // Printing results for sorting algorithms
   cout << "---------<sort algorithms>---------" << endl;
   cout << "selection sort average comparisons: " << averageSelection << endl;
@@ -63,7 +65,7 @@ int main() {
   // Calculating average comparisons for each searching algorithm
   double averageSequential = (double)sumSequential / 1000.0;
   double averageBinary = (double)sumBinary / 1000.0;
-  
+
   // Printing results for searching algorithms
   cout << "---------<search algorithms>---------" << endl;
   cout << "sequential search average comparisons: " << averageSequential
@@ -71,7 +73,8 @@ int main() {
   cout << "binary search average comparisons: " << averageBinary << endl;
 }
 
-// Function to create an array of specified length and initialize it with consecutive integers
+// Function to create an array of specified length and initialize it with
+// consecutive integers
 int *makeArr(const int len) {
   int *arr = new int[len];
   for (int i = 0; i < len; i++) {
