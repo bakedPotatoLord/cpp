@@ -9,11 +9,12 @@ protected:
 	int y;
 	std::vector<std::vector<char>> spriteMx;
 
+public:
 	int getX();
 	int getY();
 	std::vector<std::vector<char>> getMatrix();
 
-	virtual void update() = 0;
+	void update();
 
 	Sprite();
 	~Sprite();

@@ -7,6 +7,7 @@
 #include "main.h"
 #include "Renderer.h"
 #include "Constants.h"
+#include "Cloud.h"
 
 using namespace constants;
 using namespace std;
@@ -14,9 +15,7 @@ using namespace std;
 
 int main()
 {
-
-
-
+    Cloud c = Cloud();
 
     gameLoop();
 }
@@ -24,11 +23,12 @@ int main()
 void gameLoop()
 {
     while (true) {
-        this_thread::sleep_for(chrono::milliseconds(500));
+        this_thread::sleep_for(chrono::milliseconds(refreshPeriod));
 
-       renderer.renderMx();
+        renderer.updateSprites();
 
-
+        //renderer.renderMx();
+        cout << renderer.getNumSprites();
     }
 }
 

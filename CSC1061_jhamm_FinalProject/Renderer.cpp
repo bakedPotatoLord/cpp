@@ -6,11 +6,19 @@ using namespace std;
 using namespace constants;
 
 
- void Renderer::renderMx()
+void Renderer::updateSprites()
+{
+	for (auto sprite : sprites) {
+		sprite->update();
+		cout << "updating sprite " << sprite << endl;;
+	};
+}
+
+void Renderer::renderMx()
 {
 	
 	system("cls");
-	for (auto row : mx) {
+	for (auto& row : mx) {
 		for (auto c : row) {
 			cout << c;
 		}
@@ -20,7 +28,9 @@ using namespace constants;
 
 void Renderer::addSprite(Sprite* sprite)
 {
+	cout << "sprite add: " << sprite;
 	sprites.push_back(sprite);
+	getNumSprites();
 }
 
 void Renderer::destroySprite(Sprite* sprite)
@@ -33,14 +43,20 @@ void Renderer::destroySprite(Sprite* sprite)
 	}
 }
 
-int Renderer::getNumSprites()
+ size_t Renderer::getNumSprites()
 {
-	return  (int) sprites.size();
+
+	size_t s = sprites.size();
+	cout << "size: " << s;
+	return s;
 }
 
 Renderer::Renderer()
 {
-	sprites = {};
+	height = screenHeight;
+	width = screenWidth;
+
+	sprites = vector<Sprite*>(5);
 	mx = vector<vector<char>>(screenHeight, vector<char>(screenWidth));
 
 

@@ -3,5 +3,13 @@
 #include "Sprite.h"
 
 class Cloud : public Sprite {
-	public
+
+private:
+
+
+public:
+
+	Cloud();
+
+	void update();
 };

@@ -7,12 +7,12 @@ class Renderer {
 private:
 	int width;
 	int height;
-	double refreshPeriod;
 	std::vector<std::vector<char>> mx;
 	std::vector<Sprite*> sprites ;
 
 public:
 	
+	void updateSprites();
 
 	void renderMx();
 
@@ -20,7 +20,7 @@ public:
 
 	void destroySprite(Sprite* sprite);
 
-	int getNumSprites();
+	size_t getNumSprites();
 
 	Renderer();
 };
