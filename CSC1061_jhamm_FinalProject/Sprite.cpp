@@ -25,18 +25,16 @@ vector<vector<char>> Sprite::getMatrix()
 
 void Sprite::update()
 {
+	cout << "base sprite update" << endl;
 }
 
 Sprite::Sprite()
 {
 	cout << "sprite constructor";
-	renderer.addSprite(this);
 	x = 0;
 	y = 0;
-	spriteMx = {};
 }
 Sprite::~Sprite()
 {
 	cout << "sprite destroyed";
-	renderer.destroySprite(this);
 };

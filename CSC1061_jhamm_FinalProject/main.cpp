@@ -12,10 +12,11 @@
 using namespace constants;
 using namespace std;
 
+Cloud c = Cloud();
 
 int main()
 {
-    Cloud c = Cloud();
+    renderer.addSprite(&c);
 
     gameLoop();
 }
@@ -25,10 +26,13 @@ void gameLoop()
     while (true) {
         this_thread::sleep_for(chrono::milliseconds(refreshPeriod));
 
-        renderer.updateSprites();
 
-        //renderer.renderMx();
-        cout << renderer.getNumSprites();
+        renderer.renderMx();
+        renderer.getNumSprites();
+
+        c.update();
+
+
     }
 }
 
