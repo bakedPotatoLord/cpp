@@ -20,8 +20,8 @@ Cloud::Cloud() : Sprite()
 
 void Cloud::update()
 {
-
-	x--;
+	if (x == -5) x = screenWidth;
+	else x--;
 	cout << "cloud update" << endl;
 	cout <<"x: " << x << " y: " << y << endl;
 }
