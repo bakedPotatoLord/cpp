@@ -8,5 +8,4 @@ namespace constants {
 	 static const int screenHeight = 15;
 	 static const long refreshPeriod = 50;
 
-	 static Renderer renderer = Renderer();
 }
