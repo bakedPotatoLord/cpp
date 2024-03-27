@@ -1,8 +1,10 @@
 #include "Cloud.h"
 
 #include "Constants.h"
+#include <iostream>
 
 using namespace constants;
+using namespace std;
 
 Cloud::Cloud() : Sprite()
 {
@@ -18,5 +20,8 @@ Cloud::Cloud() : Sprite()
 
 void Cloud::update()
 {
-	x--;
+	if (x == -5) x = screenWidth;
+	else x--;
+	cout << "cloud update" << endl;
+	cout <<"x: " << x << " y: " << y << endl;
 }

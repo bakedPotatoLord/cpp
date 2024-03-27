@@ -16,8 +16,21 @@ void Renderer::updateSprites()
 
 void Renderer::renderMx()
 {
-	
 	system("cls");
+	setBackground();
+
+	for (auto sprite : sprites) {
+
+		for (size_t i = 0; i < sprite->getMatrix().size(); i++) {
+			for (size_t j = 0; j < sprite->getMatrix()[i].size(); j++) {
+				auto sy = sprite->getY() + i;
+				auto sx = sprite->getX() + j;
+				if (sy >= 0 && sy < screenHeight && sx >= 0 && sx < screenWidth)
+					mx[sy][sx] = sprite->getMatrix()[i][j];
+			}
+		}
+	}
+	
 	for (auto& row : mx) {
 		for (auto c : row) {
 			cout << c;
@@ -43,11 +56,21 @@ void Renderer::destroySprite(Sprite* sprite)
 	}
 }
 
+void Renderer::setBackground()
+{
+	for (int i = 0; i < screenHeight; i++) {
+		for (int j = 0; j < screenWidth; j++) {
+			if (i > (screenHeight / 4 *3)) mx[i][j] = ((i + j) % 2 == 0) ? '*' : '%';
+			else mx[i][j] = ' ';
+		}
+	}
+}
+
  size_t Renderer::getNumSprites()
 {
 
 	size_t s = sprites.size();
-	cout << "size: " << s;
+	cout << "size: " << s << endl;
 	return s;
 }
 
@@ -55,17 +78,8 @@ Renderer::Renderer()
 {
 	height = screenHeight;
 	width = screenWidth;
-
-	sprites = vector<Sprite*>(5);
+	sprites = vector<Sprite*>();
 	mx = vector<vector<char>>(screenHeight, vector<char>(screenWidth));
-
-
-	for (int i = 0; i < screenHeight; i++) {
-		for (int j = 0; j < screenWidth; j++) {
-			if (i < (screenHeight/2)) mx[i][j] = ' ';
-			else mx[i][j] = ((i + j) % 2 == 0) ? '*' : '%';
-		}
-	}
-
+	setBackground();
 }
 

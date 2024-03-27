@@ -13,13 +13,10 @@ private:
 public:
 	
 	void updateSprites();
-
 	void renderMx();
-
 	void addSprite(Sprite* sprite);
-
 	void destroySprite(Sprite* sprite);
-
+	void setBackground();
 	size_t getNumSprites();
 
 	Renderer();
