@@ -1,21 +1,28 @@
 #pragma once
 
+#include <iostream>
+#include "EmployeeInfo.h"
+
 template<class T>
 struct treeNode {
 	T data;
-	treeNode* left;
-	treeNode* right;
+	struct treeNode* left;
+	struct treeNode* right;
 };
 
 template<class T>
 class BinaryTree{
 private:
-	treeNode* root = nullptr;
-	int count = 0;
+	treeNode<T> * root;
+	int count;
 
 public:
 	void add(T data);
-	bool search(T data);
+	T search(int id);
+	bool hasID(int id);
+	bool isEmpty();
+
+	treeNode<T> getRoot();
 
 	BinaryTree(T root);
 	BinaryTree();
@@ -25,36 +32,106 @@ public:
 template<class T>
 inline void BinaryTree<T>::add(T data)
 {
-	if (root == nullptr) {
-		root = new treeNode<T>{
-			data,
-			nullptr
-			nullptr
-		};
-		return;
-	}
-	
-	treeNode<T>* ptr = root;
+	treeNode<T>* val = new treeNode<T>;
+	val->left = NULL;
+	val->right = NULL;
+	val->data = data;
 
-	while(true){
-		if (data == ptr->data) {
-			throw "duplicates are not allowed";
+	treeNode<T>* parent = NULL;
+
+	if (isEmpty()) {
+		root = val;
+	}
+	else {
+		treeNode<T>* ptr = root;
+		while (ptr != NULL) {
+			parent = ptr;
+
+			if (data > ptr->data) {
+				ptr = ptr->right;
+			}
+			else if (data < ptr->data) {
+				ptr = ptr->left;
+			}
 		}
-		else if (data > ptr->data) {
-			ptr = ptr->right;
+		if (parent->data > data) {
+			parent->left = val;
+		}
+		else if (parent->data < data) {
+			parent->right = val;
 		}
 		else {
-			ptr = ptr->left;
+			cout << "duplicates are not allowed";
 		}
 
-		if (ptr == nullptr) {
-			ptr = 
+	}
+}
+	
+
+
+template<class T>
+inline T BinaryTree<T>::search(int id)
+{
+	treeNode<T>* n = root;
+
+	while (n != NULL) {
+		if (n->data > id) {
+			n = n->left;
+		}
+		else if(n->data < id) {
+			n = n->right;
+		}
+		else {
+			return n->data;
 		}
 	}
+	throw "aaaah!";
 }
 
 template<class T>
-inline bool BinaryTree<T>::search(T data)
+inline bool BinaryTree<T>::hasID(int id)
 {
+	treeNode<T>* n = root;
+
+	while (n != NULL) {
+		if (n->data > id) {
+			n = n->left;
+		}
+		else if (n->data < id) {
+			n = n->right;
+		}
+		else {
+			return true;
+		}
+	}
 	return false;
 }
+
+template<class T>
+inline treeNode<T> BinaryTree<T>::getRoot()
+{
+	return *root;
+}
+
+
+
+template<class T>
+inline BinaryTree<T>::BinaryTree(T root)
+{
+	add(T);
+}
+
+template<class T>
+inline BinaryTree<T>::BinaryTree()
+{
+	root = NULL;
+	count = 0;
+}
+
+
+template<class T>
+inline bool BinaryTree<T>::isEmpty()
+{
+	return root == NULL;
+}
+

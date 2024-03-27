@@ -18,6 +18,11 @@ public:
 	bool operator>(EmployeeInfo const& other);
 	bool operator<(EmployeeInfo const& other);
 
+	bool operator==(int const& other);
+	bool operator>(int const& other);
+	bool operator<(int const& other);
+
+
 	EmployeeInfo(string name, int id);
 	EmployeeInfo();
 };

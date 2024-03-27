@@ -38,6 +38,21 @@ bool EmployeeInfo::operator<(EmployeeInfo const& other)
 	return id < other.id;
 }
 
+bool EmployeeInfo::operator==(int const& other)
+{
+	return id == other;
+}
+
+bool EmployeeInfo::operator>(int const& other)
+{
+	return id > other;
+}
+
+bool EmployeeInfo::operator<(int const& other)
+{
+	return id < other;
+}
+
 EmployeeInfo::EmployeeInfo(string name, int id)
 {
 	this->name = name;
