@@ -3,6 +3,9 @@
              // included only once
 
 #include "EmployeeInfo.h" // Include the header file that contains the EmployeeInfo class
+#include <iostream> // Include the standard input/output stream library
+
+using namespace std; // Using the standard namespace for cout
 
 // Structure for a tree node containing data of type T
 template <class T> struct treeNode {
