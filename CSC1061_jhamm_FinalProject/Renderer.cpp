@@ -41,7 +41,6 @@ void Renderer::renderMx()
 
 void Renderer::addSprite(Sprite* sprite)
 {
-	cout << "sprite add: " << sprite;
 	sprites.push_back(sprite);
 	getNumSprites();
 }
@@ -60,7 +59,7 @@ void Renderer::setBackground()
 {
 	for (int i = 0; i < screenHeight; i++) {
 		for (int j = 0; j < screenWidth; j++) {
-			if (i > (screenHeight / 4 *3)) mx[i][j] = ((i + j) % 2 == 0) ? '*' : '%';
+			if (i >= groundHeight) mx[i][j] = ((i + j) % 2 == 0) ? '*' : '%';
 			else mx[i][j] = ' ';
 		}
 	}

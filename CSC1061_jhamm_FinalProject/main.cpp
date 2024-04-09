@@ -8,17 +8,29 @@
 #include "Renderer.h"
 #include "Constants.h"
 #include "Cloud.h"
+#include "Player.h"
+#include "Cactus.h"
+#include "Game.h"
+#include "CactusSpawner.h"
 
 using namespace constants;
 using namespace std;
 
-Cloud c = Cloud();
+//Cactus* cactus = new Cactus();
+Player* player = new Player();
+
+Renderer renderer = Renderer();
+Game game;
+
+CactusSpawner spawner{ &renderer,&game };
 
 int main()
 {
-    renderer.addSprite(&c);
+    renderer.addSprite(player);
 
+    game.resetGame();
     gameLoop();
+    spawner.setEnabled(true);
 }
 
 void gameLoop()
@@ -28,11 +40,13 @@ void gameLoop()
 
 
         renderer.renderMx();
+        game.printLives();
         renderer.getNumSprites();
 
-        c.update();
+        player->update();
+        spawner.update();
 
-
+        game.tick();
     }
 }
 

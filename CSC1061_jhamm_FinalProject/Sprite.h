@@ -2,19 +2,25 @@
 #include <vector>
 
 
-
 class Sprite {
 protected:
 	int x;
 	int y;
 	std::vector<std::vector<char>> spriteMx;
 
+
 public:
 	int getX();
 	int getY();
-	std::vector<std::vector<char>> getMatrix();
+	virtual std::vector<std::vector<char>> getMatrix();
 
-	void update();
+	int getHeight();
+	int getWidth();
+	bool onGround();
+
+	bool touching(Sprite& other);
+
+	virtual void update();
 
 	Sprite();
 	~Sprite();
