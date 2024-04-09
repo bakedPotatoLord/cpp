@@ -18,14 +18,8 @@ private:
 
 	const std::vector<std::vector<char>> smallCactus = {
 			{'\\', '|'},
-			{
-					' ',
-					'H',
-			},
-			{
-					' ',
-					'H',
-			}};
+			{' ', 'H'},
+			{' ', 'H'}};
 
 	const std::vector<std::vector<char>> midCactus = {
 			{'w', 'w', '/'},
@@ -43,12 +37,10 @@ private:
 			{'\\', '-', '-', '/'}};
 
 public:
+	std::vector<std::vector<char>> getMatrix() override;
+	void update() override;
+
 	Cactus();
 	Cactus(cactusType);
-
 	~Cactus();
-
-	std::vector<std::vector<char>> getMatrix() override;
-
-	void update() override;
 };

@@ -8,10 +8,7 @@
 
 using namespace std;
 
-Player::Player() : Sprite()
-{
-	reset();
-}
+Player::Player() : Sprite() { reset(); }
 
 void Player::reset()
 {
@@ -30,9 +27,8 @@ vector<vector<char>> Player::getMatrix()
 void Player::update()
 {
 	Sprite::update();
-
+	
 	// gravity logic
-
 	if (!onGround())
 	{
 		// if in air
@@ -50,15 +46,10 @@ void Player::update()
 	// key logic
 	bool upPressed = GetKeyState(VK_UP) & 0x8000;
 	if (upPressed && !upLast && onGround())
-	{
-		cout << "up press" << endl;
 		vy = -1.5;
-	}
 	upLast = upPressed;
 	bool downPressed = GetKeyState(VK_DOWN) & 0x8000;
 	crouching = downPressed;
 }
 
-Player::~Player()
-{
-}
+Player::~Player() {}

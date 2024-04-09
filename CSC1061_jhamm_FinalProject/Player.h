@@ -29,13 +29,11 @@ private:
 	};
 
 public:
-	Player();
-
 	void reset();
+	void update() override;
 
 	std::vector<std::vector<char>> getMatrix() override;
 
-	void update() override;
-
+	Player();
 	~Player();
 };

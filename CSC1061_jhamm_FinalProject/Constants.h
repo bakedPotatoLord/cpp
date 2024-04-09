@@ -1,10 +1,7 @@
 #pragma once
 
-#include "Renderer.h"
-
 namespace constants
 {
-
 	static constexpr int screenWidth = 80;
 	static constexpr int screenHeight = 15;
 	static constexpr long refreshPeriod = 50;

@@ -8,15 +8,10 @@ using namespace constants;
 void Renderer::updateSprites()
 {
 	for (auto sprite : sprites)
-	{
 		sprite->update();
-	};
 }
 
-void Renderer::clearConsole()
-{
-	system("cls");
-}
+void Renderer::clearConsole() { system("cls"); }
 
 void Renderer::renderMx()
 {
@@ -101,7 +96,4 @@ Renderer::Renderer(Game *game)
 	this->game = game;
 }
 
-Renderer::Renderer()
-{
-	throw "do not use this constuctor";
-}
+Renderer::Renderer() { throw "do not use this constuctor"; }

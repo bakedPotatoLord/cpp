@@ -23,12 +23,9 @@ private:
 public:
 	void setEnabled(bool val);
 	void update();
-
 	void spawnCactus(Cactus *cactus);
 	void deleteCactus(Cactus *cactus);
-
 	void reset();
-
 	long calculateSpawnTick();
 
 	CactusSpawner();

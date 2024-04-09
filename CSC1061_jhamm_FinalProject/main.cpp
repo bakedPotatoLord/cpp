@@ -19,13 +19,11 @@ using namespace std;
 Player player;
 Game game;
 Renderer renderer = Renderer(&game);
-
 CactusSpawner spawner{&renderer, &game, &player};
 
 int main()
 {
     renderer.addSprite(&player);
-
     game.resetGame();
     gameLoop();
     spawner.setEnabled(true);
@@ -36,12 +34,10 @@ void gameLoop()
     while (true)
     {
         this_thread::sleep_for(chrono::milliseconds(refreshPeriod));
-
         renderer.clearConsole();
         game.printScore();
         renderer.renderMx();
         game.printLives();
-        renderer.getNumSprites();
 
         if (game.getLives() > 0)
         {
@@ -52,9 +48,8 @@ void gameLoop()
         else
         {
             // game reset logic
-            bool rPressed = GetKeyState(VK_RETURN) & 0x8000;
-
-            if (rPressed)
+            bool returnPressed = GetKeyState(VK_RETURN) & 0x8000;
+            if (returnPressed)
             {
                 game.resetGame();
                 spawner.reset();

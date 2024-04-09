@@ -3,15 +3,9 @@
 
 using namespace std;
 
-long Game::getTicks()
-{
-	return ticks;
-}
+long Game::getTicks() { return ticks; }
 
-void Game::tick()
-{
-	ticks++;
-}
+void Game::tick() { ticks++; }
 
 void Game::resetGame()
 {
@@ -20,41 +14,18 @@ void Game::resetGame()
 	ticks = 0;
 }
 
-int Game::getLives()
-{
-	return lives;
-}
+int Game::getLives() { return lives; }
 
-void Game::subtractLife()
-{
-	lives--;
-}
+void Game::subtractLife() { lives--; }
 
-bool Game::IsAlive()
-{
-	return lives > 0;
-}
+bool Game::IsAlive() { return lives > 0; }
 
-void Game::printLives()
-{
-	cout << "lives: " << lives << endl;
-}
+void Game::printLives() { cout << "lives: " << lives << endl; }
 
-void Game::addJump()
-{
-	jumps++;
-}
+void Game::addJump() { jumps++; }
 
-void Game::printScore()
-{
-	cout << "score: " << (ticks + (jumps * 50)) << endl;
-}
+void Game::printScore() { cout << "score: " << (ticks + (jumps * 50)) << endl; }
 
-Game::Game()
-{
-	resetGame();
-}
+Game::Game() { resetGame(); }
 
-Game::~Game()
-{
-}
+Game::~Game() {}

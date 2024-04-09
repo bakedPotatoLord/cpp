@@ -7,35 +7,17 @@
 using namespace std;
 using namespace constants;
 
-int Sprite::getX()
-{
-    return x;
-}
+int Sprite::getX() { return x; }
 
-int Sprite::getY()
-{
-    return y;
-}
+int Sprite::getY() { return y; }
 
-vector<vector<char>> Sprite::getMatrix()
-{
-    return spriteMx;
-}
+vector<vector<char>> Sprite::getMatrix() { return spriteMx; }
 
-int Sprite::getHeight()
-{
-    return (int)getMatrix().size();
-}
+int Sprite::getHeight() { return (int)getMatrix().size(); }
 
-int Sprite::getWidth()
-{
-    return (int)getMatrix()[0].size();
-}
+int Sprite::getWidth() { return (int)getMatrix()[0].size(); }
 
-bool Sprite::onGround()
-{
-    return y + getHeight() >= groundHeight;
-}
+bool Sprite::onGround() { return y + getHeight() >= groundHeight; }
 
 bool Sprite::touching(Sprite &other)
 {
@@ -64,9 +46,7 @@ bool Sprite::touching(Sprite &other)
     return false;
 }
 
-void Sprite::update()
-{
-}
+void Sprite::update() {}
 
 Sprite::Sprite()
 {
@@ -74,7 +54,4 @@ Sprite::Sprite()
     y = 0;
 }
 
-Sprite::~Sprite()
-{
-    cout << "sprite destroyed";
-};
+Sprite::~Sprite(){};

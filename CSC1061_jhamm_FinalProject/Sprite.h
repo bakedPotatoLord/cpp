@@ -11,14 +11,13 @@ protected:
 public:
 	int getX();
 	int getY();
-	virtual std::vector<std::vector<char>> getMatrix();
-
 	int getHeight();
 	int getWidth();
-	bool onGround();
 
+	bool onGround();
 	bool touching(Sprite &other);
 
+	virtual std::vector<std::vector<char>> getMatrix();
 	virtual void update();
 
 	Sprite();

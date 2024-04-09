@@ -6,21 +6,17 @@ private:
 	int lives = 0;
 	long ticks = 0;
 	long jumps = 0;
-
 public:
-	long getTicks();
 	void tick();
-
 	void resetGame();
-
-	int getLives();
 	void subtractLife();
-	bool IsAlive();
 	void printLives();
-
 	void addJump();
-
 	void printScore();
+
+	long getTicks();
+	int getLives();
+	bool IsAlive();
 
 	Game();
 	~Game();

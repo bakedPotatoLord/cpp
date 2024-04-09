@@ -15,16 +15,13 @@ void CactusSpawner::update()
 	{
 		cactusType type = (cactusType)(rand() % 4);
 		Cactus *cactus = new Cactus(type);
-
 		spawnCactus(cactus);
 		spawnTick = calculateSpawnTick();
 	}
 
 	// update living cacti
 	for (auto cactus : cacti)
-	{
 		cactus->update();
-	}
 	// iterate over cacti
 	for (auto cactus : cacti)
 	{
@@ -92,5 +89,4 @@ CactusSpawner::CactusSpawner(Renderer *renderer, Game *game, Player *player)
 	this->game = game;
 	this->player = player;
 	lastSpawn = 0;
-	// spawnTick = 0;
 }
