@@ -8,22 +8,19 @@
 #include "main.h"
 #include "Renderer.h"
 #include "Constants.h"
-#include "Cloud.h"
 #include "Player.h"
 #include "Cactus.h"
 #include "Game.h"
 #include "CactusSpawner.h"
 
-
 using namespace constants;
 using namespace std;
 
 Player player;
-
 Game game;
 Renderer renderer = Renderer(&game);
 
-CactusSpawner spawner{ &renderer,&game,&player };
+CactusSpawner spawner{&renderer, &game, &player};
 
 int main()
 {
@@ -36,7 +33,8 @@ int main()
 
 void gameLoop()
 {
-    while (true) {
+    while (true)
+    {
         this_thread::sleep_for(chrono::milliseconds(refreshPeriod));
 
         renderer.clearConsole();
@@ -45,25 +43,24 @@ void gameLoop()
         game.printLives();
         renderer.getNumSprites();
 
-        if (game.getLives() > 0) {
+        if (game.getLives() > 0)
+        {
             player.update();
             spawner.update();
             game.tick();
-
         }
-        else {
-            //game reset logic
+        else
+        {
+            // game reset logic
             bool rPressed = GetKeyState(VK_RETURN) & 0x8000;
 
-            if (rPressed) {
+            if (rPressed)
+            {
                 game.resetGame();
                 spawner.reset();
                 player.reset();
                 spawner.setEnabled(true);
             }
-
         };
     }
 }
-
-

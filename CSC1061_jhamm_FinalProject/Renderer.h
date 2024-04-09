@@ -3,25 +3,24 @@
 #include "Sprite.h"
 #include "Game.h"
 
-
-class Renderer {
+class Renderer
+{
 private:
-	Game* game;
+	Game *game;
 	int width;
 	int height;
 	std::vector<std::vector<char>> mx;
-	std::vector<Sprite*> sprites ;
+	std::vector<Sprite *> sprites;
 
 public:
-	
 	void updateSprites();
 	void clearConsole();
 	void renderMx();
-	void addSprite(Sprite* sprite);
-	void destroySprite(Sprite* sprite);
+	void addSprite(Sprite *sprite);
+	void destroySprite(Sprite *sprite);
 	void setBackground();
 	size_t getNumSprites();
 
-	Renderer(Game* game);
+	Renderer(Game *game);
 	Renderer();
 };

@@ -3,7 +3,6 @@
 
 using namespace std;
 
-
 long Game::getTicks()
 {
 	return ticks;

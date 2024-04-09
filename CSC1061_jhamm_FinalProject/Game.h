@@ -1,12 +1,13 @@
 #pragma once
 
-class Game {
+class Game
+{
 private:
 	int lives = 0;
 	long ticks = 0;
 	long jumps = 0;
-public:
 
+public:
 	long getTicks();
 	void tick();
 
@@ -23,7 +24,4 @@ public:
 
 	Game();
 	~Game();
-
-
-
 };

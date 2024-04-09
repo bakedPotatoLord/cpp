@@ -1,10 +1,10 @@
 #pragma once
 
-
 #include "Sprite.h"
 #include <vector>
 
-class Player : public Sprite {
+class Player : public Sprite
+{
 private:
 	double vy;
 	bool crouching;
@@ -13,20 +13,19 @@ private:
 	bool downLast = false;
 	bool upLast = true;
 
-    std::vector<std::vector<char>> regularMx = {
-		{' ', '\\', '/', 'o'},
-		{' ', ' ', 'o', '>'},
-		{' ', '/', ' ', '\\', '|'},
-		{'/', ' ', '~', '(', '*'},
-		{'/', '_', '_', '_', '\\'},
-		{'/', ' ', ' ', ' ', '\\'}
-	};
+	std::vector<std::vector<char>> regularMx = {
+			{' ', '\\', '/', 'o'},
+			{' ', ' ', 'o', '>'},
+			{' ', '/', ' ', '\\', '|'},
+			{'/', ' ', '~', '(', '*'},
+			{'/', '_', '_', '_', '\\'},
+			{'/', ' ', ' ', ' ', '\\'}};
 
 	std::vector<std::vector<char>> crouchingMx = {
-		{' ', '\\', '_', '/', 'o'},
-		{' ', '(', ' ', ')', ' '},
-		{'<', '_', '_', '_', '_'},
-		{'/', ' ', ' ', ' ', ' '},
+			{' ', '\\', '_', '/', 'o'},
+			{' ', '(', ' ', ')', ' '},
+			{'<', '_', '_', '_', '_'},
+			{'/', ' ', ' ', ' ', ' '},
 	};
 
 public:

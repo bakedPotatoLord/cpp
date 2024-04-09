@@ -1,13 +1,12 @@
 #pragma once
 #include <vector>
 
-
-class Sprite {
+class Sprite
+{
 protected:
 	int x;
 	int y;
 	std::vector<std::vector<char>> spriteMx;
-
 
 public:
 	int getX();
@@ -18,7 +17,7 @@ public:
 	int getWidth();
 	bool onGround();
 
-	bool touching(Sprite& other);
+	bool touching(Sprite &other);
 
 	virtual void update();
 

@@ -9,35 +9,36 @@ using namespace constants;
 
 int Sprite::getX()
 {
-	return x;
+    return x;
 }
 
 int Sprite::getY()
 {
-	return y;
+    return y;
 }
 
 vector<vector<char>> Sprite::getMatrix()
 {
-	return spriteMx;
+    return spriteMx;
 }
 
 int Sprite::getHeight()
 {
-	return (int) getMatrix().size();
+    return (int)getMatrix().size();
 }
 
 int Sprite::getWidth()
 {
-	return  (int) getMatrix()[0].size();
+    return (int)getMatrix()[0].size();
 }
 
 bool Sprite::onGround()
 {
-	return y+getHeight() >= groundHeight;
+    return y + getHeight() >= groundHeight;
 }
 
-bool Sprite::touching(Sprite& other) {
+bool Sprite::touching(Sprite &other)
+{
     // Get the position and dimensions of both sprites
     int thisX = getX();
     int thisY = getY();
@@ -53,7 +54,8 @@ bool Sprite::touching(Sprite& other) {
     if ((thisX + thisWidth) >= otherX &&
         thisX <= (otherX + otherWidth) &&
         (thisY + thisHeight) >= otherY &&
-        thisY <= (otherY + otherHeight)) {
+        thisY <= (otherY + otherHeight))
+    {
         // Collision detected
         return true;
     }
@@ -64,16 +66,15 @@ bool Sprite::touching(Sprite& other) {
 
 void Sprite::update()
 {
-
 }
 
 Sprite::Sprite()
 {
-	x = 0;
-	y = 0;
+    x = 0;
+    y = 0;
 }
 
 Sprite::~Sprite()
 {
-	cout << "sprite destroyed";
+    cout << "sprite destroyed";
 };
