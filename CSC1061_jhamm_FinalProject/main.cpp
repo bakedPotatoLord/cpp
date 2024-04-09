@@ -1,3 +1,13 @@
+
+// CSC1061_jhamm_FinalProject
+// A dinosaur game implemeted in C++
+
+//created by Josiah Hamm @bakedPotatoLord
+
+// AI tooling was used for autocomplete and comment generation
+// 4/9/2024
+
+
 #include <iostream>  // Include iostream for input/output operations
 #include <stdlib.h>  // Include stdlib.h for standard library functions
 #include <Windows.h> // Include Windows.h for Windows-specific functions
