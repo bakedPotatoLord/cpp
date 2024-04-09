@@ -129,7 +129,6 @@
   <ItemGroup>
     <ClCompile Include="Cactus.cpp" />
     <ClCompile Include="CactusSpawner.cpp" />
-    <ClCompile Include="Cloud.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Player.cpp" />
@@ -140,7 +139,6 @@
     <ClInclude Include="Cactus.h" />
     <ClInclude Include="CactusSpawner.h" />
     <ClInclude Include="Constants.h" />
-    <ClInclude Include="Cloud.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="main.h" />
     <ClInclude Include="Player.h" />
