@@ -1,0 +1,15 @@
+Dinosaur Game Implementation
+
+The proposed project involves developing a C++ version of the popular Google Chrome
+Dinosaur Game. This game features a dinosaur navigating a desert landscape, avoiding
+obstacles like cacti and birds by jumping over them. The C++ implementation will 
+replicate the original game's mechanics while introducing additional features for
+enhanced gameplay, including graphics and animation, user input and controls, 
+collision detection, scoring, and increasing difficulty levels.
+
+The C++ Implementation of the Google Chrome Dinosaur Game will offer an engaging gaming
+experience by faithfully reproducing the original game's mechanics. By incorporating
+features like graphics and animation, user input controls, collision detection, scoring,
+and adjustable difficulty levels, the project aims to demonstrate core programming concepts
+while providing players with an enjoyable gaming experience reminiscent of the popular
+offline browser game.

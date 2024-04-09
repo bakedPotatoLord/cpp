@@ -147,6 +147,9 @@
     <ClInclude Include="Renderer.h" />
     <ClInclude Include="Sprite.h" />
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="specs.txt" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
