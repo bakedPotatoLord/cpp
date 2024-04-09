@@ -9,16 +9,18 @@ using namespace constants;
 
 Cactus::Cactus(): Sprite()
 {
-	x = screenWidth;
-	
-
-	y = groundHeight- getHeight();
-	
+	Cactus(small);
 }
 
 Cactus::Cactus(cactusType type)
 {
+	x = screenWidth;
+	y = groundHeight - getHeight();
 	this->type = type;
+
+	if (type == flying) {
+		y -= 5;
+	}
 }
 
 Cactus::~Cactus()
@@ -26,6 +28,22 @@ Cactus::~Cactus()
 	for (auto &row : spriteMx) {
 		delete &row;
 	}
+}
+
+std::vector<std::vector<char>> Cactus::getMatrix()
+{
+	switch (type)
+	{
+	case tiny:
+		return smallCactus;
+	case medium:
+		return midCactus;
+	case large:
+		return largeCactus;
+	case flying:
+		return flyingCactus;
+	};
+
 }
 
 void Cactus::update()

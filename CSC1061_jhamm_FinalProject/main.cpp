@@ -1,6 +1,7 @@
 
 #include <iostream>
 #include <stdlib.h>
+#include <Windows.h>
 
 #include <chrono>
 #include <thread>
@@ -13,20 +14,20 @@
 #include "Game.h"
 #include "CactusSpawner.h"
 
+
 using namespace constants;
 using namespace std;
 
-//Cactus* cactus = new Cactus();
-Player* player = new Player();
+Player player;
 
-Renderer renderer = Renderer();
 Game game;
+Renderer renderer = Renderer(&game);
 
-CactusSpawner spawner{ &renderer,&game };
+CactusSpawner spawner{ &renderer,&game,&player };
 
 int main()
 {
-    renderer.addSprite(player);
+    renderer.addSprite(&player);
 
     game.resetGame();
     gameLoop();
@@ -38,15 +39,30 @@ void gameLoop()
     while (true) {
         this_thread::sleep_for(chrono::milliseconds(refreshPeriod));
 
-
+        renderer.clearConsole();
+        game.printScore();
         renderer.renderMx();
         game.printLives();
         renderer.getNumSprites();
 
-        player->update();
-        spawner.update();
+        if (game.getLives() > 0) {
+            player.update();
+            spawner.update();
+            game.tick();
 
-        game.tick();
+        }
+        else {
+            //game reset logic
+            bool rPressed = GetKeyState(VK_RETURN) & 0x8000;
+
+            if (rPressed) {
+                game.resetGame();
+                spawner.reset();
+                player.reset();
+                spawner.setEnabled(true);
+            }
+
+        };
     }
 }
 

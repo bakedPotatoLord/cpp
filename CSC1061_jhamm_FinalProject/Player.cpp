@@ -10,6 +10,11 @@ using namespace std;
 
 Player::Player() : Sprite()
 {
+	reset();
+}
+
+void Player::reset()
+{
 	x = 4;
 	y = 6;
 	crouching = false;
@@ -53,4 +58,8 @@ void Player::update()
 	bool downPressed = GetKeyState(VK_DOWN) & 0x8000;
 	crouching = downPressed;
 
+}
+
+Player::~Player()
+{
 }

@@ -3,11 +3,12 @@
 #include "Sprite.h"
 #include <vector>
 
+
 enum cactusType {
-	small,
+	tiny,
 	medium,
 	large,
-	none
+	flying,
 };
 
 class Cactus : public Sprite {
@@ -27,19 +28,25 @@ private:
 	};
 
 	const std::vector<std::vector<char>> largeCactus = {
-		{'w','w','/'},
-		{'W','H','|'},
-		{'\\','H','|' }
+		{'\\','w','/','w'},
+		{'|','H','|','/'},
+		{'\\','H','|' ,' '}
 	};
 
+	const std::vector<std::vector<char>> flyingCactus = {
+		{' ','/','-','\\'},
+		{'<','o','^','>'},
+		{'\\','-','-' ,'/'}
+	};
 
-	
 	
 public:
 	Cactus();
 	Cactus(cactusType);
 
 	~Cactus();
+
+	std::vector<std::vector<char>> getMatrix() override;
 
 	void update() override;
 };

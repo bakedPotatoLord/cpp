@@ -12,12 +12,10 @@ void CactusSpawner::update()
 {
 	//try to spawn new cacti
 	if (spawnTick <= game->getTicks() ){
-		Cactus* cactus = new Cactus();
+		cactusType type = (cactusType)(rand() % 4);
+		Cactus* cactus = new Cactus(type);
 
-		cacti.push_back(cactus);
-		renderer->addSprite(cactus);
-
-
+		spawnCactus(cactus);
 		spawnTick = calculateSpawnTick();
 	}
 
@@ -25,22 +23,47 @@ void CactusSpawner::update()
 	for (auto cactus : cacti) {
 		cactus->update();
 	}
-
-	//delete off-screen cacti
+	//iterate over cacti
 	for (auto cactus : cacti) {
+		//delete off-screen cacti	
 		if (cactus->getX() < 0 ) {
-			//delete in renderer
-			renderer->destroySprite(cactus);
-
-			//delete in spawner
-			for (int i = 0; i < cacti.size(); i++) {
-				if (cacti[i] == cactus) {
-					cacti[i] = cacti.back();
-					cacti.pop_back();
-				}
-			}
-
+			deleteCactus(cactus);
+			game->addJump();
+			continue;
 		}
+
+		//handle collision
+		if (cactus->touching(*player)) {
+			deleteCactus(cactus);
+			game->subtractLife();
+		}
+	}
+}
+
+void CactusSpawner::spawnCactus(Cactus* cactus)
+{
+	cacti.push_back(cactus);
+	renderer->addSprite(cactus);
+}
+
+void CactusSpawner::deleteCactus(Cactus* cactus)
+{
+	//delete in renderer
+	renderer->destroySprite(cactus);
+
+	//delete in spawner
+	for (int i = 0; i < cacti.size(); i++) {
+		if (cacti[i] == cactus) {
+			cacti[i] = cacti.back();
+			cacti.pop_back();
+		}
+	}
+}
+
+void CactusSpawner::reset()
+{
+	for (auto cactus : cacti) {
+		deleteCactus(cactus);
 	}
 }
 
@@ -55,9 +78,11 @@ CactusSpawner::CactusSpawner()
 	throw "don't use this constructor";
 }
 
-CactusSpawner::CactusSpawner(Renderer* renderer, Game* game)
+CactusSpawner::CactusSpawner(Renderer* renderer, Game* game,Player* player)
 {
 	this->renderer = renderer;
 	this->game = game;
+	this->player = player;
 	lastSpawn = 0;
+	//spawnTick = 0;
 }

@@ -14,28 +14,35 @@ void Renderer::updateSprites()
 	};
 }
 
+void Renderer::clearConsole() {
+	system("cls");
+}
+
 void Renderer::renderMx()
 {
-	system("cls");
-	setBackground();
-
-	for (auto sprite : sprites) {
-
-		for (size_t i = 0; i < sprite->getMatrix().size(); i++) {
-			for (size_t j = 0; j < sprite->getMatrix()[i].size(); j++) {
-				auto sy = sprite->getY() + i;
-				auto sx = sprite->getX() + j;
-				if (sy >= 0 && sy < screenHeight && sx >= 0 && sx < screenWidth)
-					mx[sy][sx] = sprite->getMatrix()[i][j];
+	if (game->getLives() <= 0) {
+		cout << "Game Over! Press Enter to try again." << endl;
+	}
+	else 
+	{
+		setBackground();
+		for (auto sprite : sprites) {
+			for (size_t i = 0; i < sprite->getMatrix().size(); i++) {
+				for (size_t j = 0; j < sprite->getMatrix()[i].size(); j++) {
+					auto sy = sprite->getY() + i;
+					auto sx = sprite->getX() + j;
+					if (sy >= 0 && sy < screenHeight && sx >= 0 && sx < screenWidth)
+						mx[sy][sx] = sprite->getMatrix()[i][j];
+				}
 			}
 		}
-	}
 	
-	for (auto& row : mx) {
-		for (auto c : row) {
-			cout << c;
+		for (auto& row : mx) {
+			for (auto c : row) {
+				cout << c;
+			}
+			cout << endl;
 		}
-		cout << endl;
 	}
 }
 
@@ -69,16 +76,21 @@ void Renderer::setBackground()
 {
 
 	size_t s = sprites.size();
-	cout << "size: " << s << endl;
 	return s;
 }
 
+ Renderer::Renderer(Game* game)
+ {
+	 height = screenHeight;
+	 width = screenWidth;
+	 sprites = vector<Sprite*>();
+	 mx = vector<vector<char>>(screenHeight, vector<char>(screenWidth));
+	 setBackground();
+	 this->game = game;
+ }
+
 Renderer::Renderer()
 {
-	height = screenHeight;
-	width = screenWidth;
-	sprites = vector<Sprite*>();
-	mx = vector<vector<char>>(screenHeight, vector<char>(screenWidth));
-	setBackground();
+	throw "do not use this constuctor";
 }
 

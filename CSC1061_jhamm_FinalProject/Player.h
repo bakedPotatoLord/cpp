@@ -6,7 +6,6 @@
 
 class Player : public Sprite {
 private:
-	
 	double vy;
 	bool crouching;
 	double realY;
@@ -24,16 +23,16 @@ private:
 	};
 
 	std::vector<std::vector<char>> crouchingMx = {
-		{ ' ', ' ', ' ',' ',},
-		{ ' ', ' ', ' ',' ',},
-		{ '\\', '_', '/', 'o' },
-		{ '(', ' ', ')', ' ' },
-		{ '<', '_', '_', '_' },
-		{ '/', ' ', ' ', ' ' }
+		{' ', '\\', '_', '/', 'o'},
+		{' ', '(', ' ', ')', ' '},
+		{'<', '_', '_', '_', '_'},
+		{'/', ' ', ' ', ' ', ' '},
 	};
 
 public:
 	Player();
+
+	void reset();
 
 	std::vector<std::vector<char>> getMatrix() override;
 

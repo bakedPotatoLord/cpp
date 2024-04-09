@@ -1,6 +1,9 @@
 #include "Game.h"
 #include <iostream>
 
+using namespace std;
+
+
 long Game::getTicks()
 {
 	return ticks;
@@ -14,6 +17,8 @@ void Game::tick()
 void Game::resetGame()
 {
 	lives = 3;
+	jumps = 0;
+	ticks = 0;
 }
 
 int Game::getLives()
@@ -33,7 +38,17 @@ bool Game::IsAlive()
 
 void Game::printLives()
 {
-	std::cout << "lives: " << lives << std::endl;
+	cout << "lives: " << lives << endl;
+}
+
+void Game::addJump()
+{
+	jumps++;
+}
+
+void Game::printScore()
+{
+	cout << "score: " << (ticks + (jumps * 50)) << endl;
 }
 
 Game::Game()
