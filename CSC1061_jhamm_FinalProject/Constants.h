@@ -1,10 +1,21 @@
 #pragma once
 
+// Namespace containing constants used in the project
 namespace constants
 {
-	static constexpr int screenWidth = 80;
-	static constexpr int screenHeight = 15;
-	static constexpr long refreshPeriod = 50;
-	static constexpr int groundHeight = 12;
-	static constexpr double gravityAccel = 0.20;
+    // Width of the screen
+    static constexpr int screenWidth = 80;
+
+    // Height of the screen
+    static constexpr int screenHeight = 15;
+
+    // Period for refreshing the screen (milliseconds)
+    static constexpr long refreshPeriod = 50;
+
+    // Height of the ground in the game
+    static constexpr int groundHeight = 12;
+
+    // Acceleration due to gravity
+    static constexpr double gravityAccel = 0.20;
 }
+

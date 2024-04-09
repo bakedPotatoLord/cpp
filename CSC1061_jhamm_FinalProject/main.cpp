@@ -1,60 +1,65 @@
+#include <iostream>  // Include iostream for input/output operations
+#include <stdlib.h>  // Include stdlib.h for standard library functions
+#include <Windows.h> // Include Windows.h for Windows-specific functions
 
-#include <iostream>
-#include <stdlib.h>
-#include <Windows.h>
+#include <chrono>          // Include chrono for time-related functions
+#include <thread>          // Include thread for multi-threading support
+#include "main.h"          // Include header file for main function declaration
+#include "Renderer.h"      // Include header file for the Renderer class
+#include "Constants.h"     // Include header file for constants used in the project
+#include "Player.h"        // Include header file for the Player class
+#include "Cactus.h"        // Include header file for the Cactus class
+#include "Game.h"          // Include header file for the Game class
+#include "CactusSpawner.h" // Include header file for the CactusSpawner class
 
-#include <chrono>
-#include <thread>
-#include "main.h"
-#include "Renderer.h"
-#include "Constants.h"
-#include "Player.h"
-#include "Cactus.h"
-#include "Game.h"
-#include "CactusSpawner.h"
+using namespace constants; // Using namespace of constants for easy access to constants
+using namespace std;       // Using standard namespace for convenience
 
-using namespace constants;
-using namespace std;
+Player player;                                    // Declare a Player object
+Game game;                                        // Declare a Game object
+Renderer renderer = Renderer(&game);              // Declare a Renderer object and initialize with the Game object
+CactusSpawner spawner{&renderer, &game, &player}; // Declare a CactusSpawner object and initialize with the Renderer, Game, and Player objects
 
-Player player;
-Game game;
-Renderer renderer = Renderer(&game);
-CactusSpawner spawner{&renderer, &game, &player};
+// Function to start the game loop
+void gameLoop();
 
+// Main function
 int main()
 {
-    renderer.addSprite(&player);
-    game.resetGame();
-    gameLoop();
-    spawner.setEnabled(true);
+    renderer.addSprite(&player); // Add the player to the renderer
+    game.resetGame();            // Reset the game state
+    gameLoop();                  // Start the game loop
+    spawner.setEnabled(true);    // Enable the cactus spawner
+    return 0;                    // Return 0 to indicate successful execution
 }
 
+// Game loop function
 void gameLoop()
 {
     while (true)
     {
-        this_thread::sleep_for(chrono::milliseconds(refreshPeriod));
-        renderer.clearConsole();
-        game.printScore();
-        renderer.renderMx();
-        game.printLives();
+        this_thread::sleep_for(chrono::milliseconds(refreshPeriod)); // Delay for a specified time
+        renderer.clearConsole();                                     // Clear the console screen
+        game.printScore();                                           // Print the current score
+        renderer.renderMx();                                         // Render the game matrix
+        game.printLives();                                           // Print the current number of lives
 
-        if (game.getLives() > 0)
+        if (game.getLives() > 0) // Check if the player is still alive
         {
-            player.update();
-            spawner.update();
-            game.tick();
+            player.update();  // Update the player
+            spawner.update(); // Update the cactus spawner
+            game.tick();      // Increment the tick count
         }
         else
         {
-            // game reset logic
-            bool returnPressed = GetKeyState(VK_RETURN) & 0x8000;
-            if (returnPressed)
+            // Game reset logic
+            bool returnPressed = GetKeyState(VK_RETURN) & 0x8000; // Check if the return key is pressed
+            if (returnPressed)                                    // If return key is pressed
             {
-                game.resetGame();
-                spawner.reset();
-                player.reset();
-                spawner.setEnabled(true);
+                game.resetGame();         // Reset the game state
+                spawner.reset();          // Reset the cactus spawner
+                player.reset();           // Reset the player state
+                spawner.setEnabled(true); // Enable the cactus spawner
             }
         };
     }
